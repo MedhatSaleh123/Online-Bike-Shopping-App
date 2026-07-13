@@ -22,7 +22,7 @@ class OnlineBikeShoppingApp extends StatelessWidget {
           elevation: 0,
         ),
       ),
-      initialRoute: AppName.discover,
+      initialRoute: AppName.bikeDetails,
     );
   }
 }
