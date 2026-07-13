@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_bike_shopping_app/core/config/app_router.dart';
+import 'package:online_bike_shopping_app/core/constants/app_color.dart';
 
 void main() {
   runApp(const OnlineBikeShoppingApp());
@@ -9,11 +11,18 @@ class OnlineBikeShoppingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(child: Text('Welcome to Online Bike Shopping App')),
+      routes: AppRouter.routes,
+      theme: ThemeData(
+        primaryColor: AppColors.primary,
+        scaffoldBackgroundColor: AppColors.background,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.background,
+          elevation: 0,
+        ),
       ),
+      initialRoute: AppName.discover,
     );
   }
 }
