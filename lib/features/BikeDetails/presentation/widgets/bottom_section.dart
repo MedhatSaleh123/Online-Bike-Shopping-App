@@ -22,24 +22,23 @@ class BottomSection extends StatelessWidget {
 
           Expanded(
             flex: 3,
-            child: SizedBox(
+            child: Container(
+              alignment: Alignment.center,
               height: 44,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff4A73FF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  elevation: 0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                gradient: LinearGradient(
+                  begin: Alignment.bottomRight,
+                  end: Alignment.topLeft,
+                  colors: [Color(0xff4E4AF2), Color(0xff34C8E8)],
                 ),
-                onPressed: () {},
-                child: const Text(
-                  "Add to Cart",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
+              ),
+              child: const Text(
+                "Add to Cart",
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),

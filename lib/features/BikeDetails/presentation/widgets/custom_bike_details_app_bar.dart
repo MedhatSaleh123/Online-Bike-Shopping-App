@@ -13,12 +13,13 @@ class CustomBikeDetailsAppBar extends StatelessWidget {
           Container(
             width: 44,
             height: 44,
+            padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               gradient: LinearGradient(
                 begin: Alignment.bottomRight,
                 end: Alignment.topLeft,
-                colors: [Color(0xff34C8E8), Color(0xff4E4AF2)],
+                colors: [Color(0xff4E4AF2), Color(0xff34C8E8)],
               ),
             ),
             child: Image.asset("assets/arrow_back.png"),

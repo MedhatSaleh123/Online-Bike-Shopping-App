@@ -25,7 +25,7 @@ class _BikeDetailsCardState extends State<BikeDetailsCard> {
           gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
-            colors: [Color(0xff353F54), Color(0xff222834)],
+            colors: [Color(0xff222834), Color(0xff353F54)],
           ),
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(30),
