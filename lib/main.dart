@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_bike_shopping_app/core/config/app_router.dart';
 import 'package:online_bike_shopping_app/core/constants/app_color.dart';
 import 'package:online_bike_shopping_app/features/ShoppingBag/presentation/cubits/cart_cubit.dart';
-import 'package:online_bike_shopping_app/features/ShoppingBag/presentation/screens/shopping_cart_screen.dart';
-import 'package:online_bike_shopping_app/test.dart';
 
 void main() {
   runApp(const OnlineBikeShoppingApp());

@@ -13,6 +13,8 @@ class ShoppingListView extends StatelessWidget {
     return BlocBuilder<CartCubit, CartState>(
       builder: (context, state) {
         return ListView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemCount: state.items.length,
           itemBuilder: (_, index) {
             final item = state.items[index];

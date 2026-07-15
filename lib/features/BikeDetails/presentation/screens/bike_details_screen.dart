@@ -29,6 +29,7 @@ class BikeDetailsScreen extends StatelessWidget {
                   SizedBox(height: 20),
                   BikeDetailsCard(
                     onTap: () {
+                      Navigator.pushNamed(context, AppName.shoppingCartScreen);
                       context.read<CartCubit>().addItem(
                         CartItem(
                           id: productModel.id,
@@ -37,7 +38,6 @@ class BikeDetailsScreen extends StatelessWidget {
                           price: productModel.price,
                         ),
                       );
-                      Navigator.pushNamed(context, AppName.shoppingCartScreen);
                     },
                     name: productModel.name,
                     price: productModel.price.toString(),

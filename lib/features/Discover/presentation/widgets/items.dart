@@ -38,7 +38,7 @@ class _ItemsListViewState extends State<ItemsListView> {
           crossAxisCount: 2,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
-          childAspectRatio: .80,
+          childAspectRatio: .75,
         ),
         itemBuilder: (_, index) {
           return ProductCard(

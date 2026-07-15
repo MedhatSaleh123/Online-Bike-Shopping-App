@@ -60,8 +60,7 @@ class CustomShoppingCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "\$ "
-                        "${price.toString}",
+                        '\$ ${price.toStringAsFixed(2)}',
                         style: TextStyle(
                           color: Color(0xff3C9EEA),
                           fontWeight: FontWeight.w600,

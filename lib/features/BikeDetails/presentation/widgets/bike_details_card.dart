@@ -63,7 +63,7 @@ class _BikeDetailsCardState extends State<BikeDetailsCard> {
 
             const SizedBox(height: 28),
 
-            BottomSection(onTap: () {}, price: widget.price),
+            BottomSection(onTap: widget.onTap, price: widget.price),
           ],
         ),
       ),

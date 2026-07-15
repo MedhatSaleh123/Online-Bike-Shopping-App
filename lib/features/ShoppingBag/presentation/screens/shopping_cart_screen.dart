@@ -20,7 +20,8 @@ class ShoppingCartScreen extends StatelessWidget {
               children: [
                 CustomShoppingCartAppBar(),
                 SizedBox(height: 30),
-                SizedBox(height: 300, child: ShoppingListView()),
+                ShoppingListView(),
+
                 CustomTextShopping(),
                 SizedBox(height: 20),
                 CouponSection(),

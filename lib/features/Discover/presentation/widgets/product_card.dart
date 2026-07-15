@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_bike_shopping_app/core/constants/app_color.dart';
 import 'package:online_bike_shopping_app/features/Discover/data/models/product_model.dart';
+
+import '../../../ShoppingBag/data/models/cart_model.dart';
+import '../../../ShoppingBag/presentation/cubits/cart_cubit.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
@@ -20,6 +24,7 @@ class ProductCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(24),
       onTap: onPressed,
       child: Container(
+        alignment: Alignment.center,
         // transform: Matrix4.identity()..rotateZ(-0.1),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -85,13 +90,38 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
-            Text(
-              "\$${product.price}",
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              children: [
+                Text(
+                  "\$${product.price}",
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Spacer(),
+                IconButton(
+                  onPressed: () {
+                    context.read<CartCubit>().addItem(
+                      CartItem(
+                        id: product.id,
+                        title: product.name,
+                        image: product.image,
+                        price: product.price,
+                      ),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("✅ Item added to cart"),
+                        duration: Duration(seconds: 2),
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                  },
+                  icon: Icon(Icons.add, color: Colors.white, size: 25),
+                ),
+              ],
             ),
           ],
         ),
