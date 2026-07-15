@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../cubits/cart_cubit.dart';
+import '../cubits/cart_state.dart';
 
 class OrderSummaryCard extends StatelessWidget {
   const OrderSummaryCard({super.key});
@@ -74,13 +78,18 @@ class TotalSummaryItem extends StatelessWidget {
             ),
           ),
         ),
-        Text(
-          total,
-          style: TextStyle(
-            color: Color(0xff38B8EA),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        BlocBuilder<CartCubit, CartState>(
+          builder: (_, state) {
+            return Text(
+              "\$${state.totalPrice.toStringAsFixed(2)}",
+
+              style: TextStyle(
+                color: Color(0xff38B8EA),
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            );
+          },
         ),
       ],
     );

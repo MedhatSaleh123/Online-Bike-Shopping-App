@@ -3,8 +3,20 @@ import 'package:online_bike_shopping_app/core/constants/app_color.dart';
 import 'package:online_bike_shopping_app/features/ShoppingBag/presentation/widgets/quantaty_selector.dart';
 
 class CustomShoppingCard extends StatelessWidget {
-  const CustomShoppingCard({super.key});
-
+  const CustomShoppingCard({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.quantity,
+    required this.price,
+    required this.increment,
+    required this.decrement,
+  });
+  final String image, title;
+  final int quantity;
+  final double price;
+  final void Function() increment;
+  final void Function() decrement;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +37,7 @@ class CustomShoppingCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
 
-              child: Image.asset("assets/bike_1.png", fit: BoxFit.contain),
+              child: Image.asset(image, fit: BoxFit.contain),
             ),
 
             const SizedBox(width: 18),
@@ -33,9 +45,9 @@ class CustomShoppingCard extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    "PEUGEOT - LR01",
+                    title,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w700,
@@ -48,7 +60,8 @@ class CustomShoppingCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "\$ 1,999.99",
+                        "\$ "
+                        "${price.toString}",
                         style: TextStyle(
                           color: Color(0xff3C9EEA),
                           fontWeight: FontWeight.w600,
@@ -56,7 +69,11 @@ class CustomShoppingCard extends StatelessWidget {
                         ),
                       ),
                       Spacer(),
-                      QuantitySelector(),
+                      QuantitySelector(
+                        increment: increment,
+                        decrement: decrement,
+                        quantity: quantity,
+                      ),
                     ],
                   ),
                 ],

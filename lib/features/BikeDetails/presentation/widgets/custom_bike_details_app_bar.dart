@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomBikeDetailsAppBar extends StatelessWidget {
-  const CustomBikeDetailsAppBar({super.key});
-
+  const CustomBikeDetailsAppBar({super.key, required this.name});
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,22 +10,27 @@ class CustomBikeDetailsAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            width: 44,
-            height: 44,
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              gradient: LinearGradient(
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft,
-                colors: [Color(0xff4E4AF2), Color(0xff34C8E8)],
+          Ink(
+            child: InkWell(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                width: 44,
+                height: 44,
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomRight,
+                    end: Alignment.topLeft,
+                    colors: [Color(0xff4E4AF2), Color(0xff34C8E8)],
+                  ),
+                ),
+                child: Image.asset("assets/arrow_back.png"),
               ),
             ),
-            child: Image.asset("assets/arrow_back.png"),
           ),
           Text(
-            "PEUGEOT - LRO1",
+            name,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,

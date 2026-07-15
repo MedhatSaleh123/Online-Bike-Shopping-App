@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class DescriptionWidget extends StatelessWidget {
-  const DescriptionWidget({super.key});
-
+  const DescriptionWidget({super.key, required this.name});
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Text(
-          "PEUGEOT - LR01",
+          name,
           style: TextStyle(
             color: Colors.white,
             fontSize: 17,

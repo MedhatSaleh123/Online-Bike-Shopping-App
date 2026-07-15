@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_bike_shopping_app/core/config/app_router.dart';
+import 'package:online_bike_shopping_app/features/BikeDetails/presentation/screens/bike_details_screen.dart';
 import 'package:online_bike_shopping_app/features/Discover/data/models/product_model.dart';
 import 'package:online_bike_shopping_app/features/Discover/presentation/widgets/product_card.dart';
 
@@ -27,7 +29,7 @@ class _ItemsListViewState extends State<ItemsListView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(0),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: GridView.builder(
         physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
@@ -42,7 +44,15 @@ class _ItemsListViewState extends State<ItemsListView> {
           return ProductCard(
             product: products[index],
 
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return BikeDetailsScreen(productModel: products[index]);
+                  },
+                ),
+              );
+            },
 
             onFavoritePressed: () {
               toggleFavorite(index);

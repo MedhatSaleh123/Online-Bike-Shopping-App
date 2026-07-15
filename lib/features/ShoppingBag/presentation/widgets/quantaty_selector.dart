@@ -1,25 +1,15 @@
 import 'package:flutter/material.dart';
 
-class QuantitySelector extends StatefulWidget {
-  const QuantitySelector({super.key});
-
-  @override
-  State<QuantitySelector> createState() => _QuantitySelectorState();
-}
-
-class _QuantitySelectorState extends State<QuantitySelector> {
-  int quantity = 1;
-
-  void increment() {
-    setState(() => quantity++);
-  }
-
-  void decrement() {
-    if (quantity > 1) {
-      setState(() => quantity--);
-    }
-  }
-
+class QuantitySelector extends StatelessWidget {
+  QuantitySelector({
+    super.key,
+    this.quantity = 1,
+    required this.increment,
+    required this.decrement,
+  });
+  int quantity;
+  final void Function() increment;
+  final void Function() decrement;
   @override
   Widget build(BuildContext context) {
     return Row(

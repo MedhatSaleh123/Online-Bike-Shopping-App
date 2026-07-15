@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BikeSlider extends StatefulWidget {
-  const BikeSlider({super.key});
-
+  const BikeSlider({super.key, required this.image});
+  final String image;
   @override
   State<BikeSlider> createState() => _BikeSliderState();
 }
@@ -10,14 +10,9 @@ class BikeSlider extends StatefulWidget {
 class _BikeSliderState extends State<BikeSlider> {
   int currentIndex = 0;
 
-  final List<String> bikes = [
-    "assets/bike_1.png",
-    "assets/bike_2.png",
-    "assets/bike3.png",
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final bikes = [widget.image, "assets/bike_2.png", "assets/bike3.png"];
     return Column(
       children: [
         SizedBox(

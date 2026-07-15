@@ -6,8 +6,15 @@ import 'specification_widget.dart';
 import 'top_taps.dart';
 
 class BikeDetailsCard extends StatefulWidget {
-  const BikeDetailsCard({super.key});
-
+  BikeDetailsCard({
+    super.key,
+    required this.onTap,
+    required this.name,
+    required this.price,
+  });
+  final String name;
+  final String price;
+  void Function()? onTap;
   @override
   State<BikeDetailsCard> createState() => _BikeDetailsCardState();
 }
@@ -35,7 +42,7 @@ class _BikeDetailsCardState extends State<BikeDetailsCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 25),
+            SizedBox(height: 15),
 
             /// Tabs
             TopTabs(
@@ -47,16 +54,16 @@ class _BikeDetailsCardState extends State<BikeDetailsCard> {
               },
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height: 14),
 
             if (isDescription)
-              const DescriptionWidget()
+              DescriptionWidget(name: widget.name)
             else
               const SpecificationWidget(),
 
             const SizedBox(height: 28),
 
-            const BottomSection(),
+            BottomSection(onTap: () {}, price: widget.price),
           ],
         ),
       ),

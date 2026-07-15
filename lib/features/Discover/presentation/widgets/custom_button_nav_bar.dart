@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 
-class CustomButtonNavBar extends StatefulWidget {
-  CustomButtonNavBar({
+class CustomButtonNavBar extends StatelessWidget {
+  const CustomButtonNavBar({
     super.key,
     required this.navImages,
-    this.currentIndex = 0,
+    required this.currentIndex,
+    required this.onChanged,
   });
-  int currentIndex;
+  final int currentIndex;
 
   final List<String> navImages;
+  final ValueChanged<int> onChanged;
 
-  @override
-  State<CustomButtonNavBar> createState() => _CustomButtonNavBarState();
-}
-
-class _CustomButtonNavBarState extends State<CustomButtonNavBar> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -35,19 +32,17 @@ class _CustomButtonNavBarState extends State<CustomButtonNavBar> {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(widget.navImages.length, (index) {
-              final selected = widget.currentIndex == index;
+            children: List.generate(navImages.length, (index) {
+              final selected = currentIndex == index;
 
               return GestureDetector(
                 onTap: () {
-                  setState(() {
-                    widget.currentIndex = index;
-                  });
+                  onChanged(index);
                 },
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 250),
                   curve: Curves.easeInOut,
-                  transform: Matrix4.identity()..rotateZ(-0.1),
+
                   width: 56,
                   height: 56,
                   decoration: BoxDecoration(
@@ -58,7 +53,7 @@ class _CustomButtonNavBarState extends State<CustomButtonNavBar> {
                   ),
                   alignment: Alignment.center,
                   child: Image.asset(
-                    widget.navImages[index],
+                    navImages[index],
                     width: 24,
                     height: 24,
                     color: Colors.white, // Remove if your images are colored

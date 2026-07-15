@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_bike_shopping_app/core/config/app_router.dart';
 import 'package:online_bike_shopping_app/core/constants/app_color.dart';
+import 'package:online_bike_shopping_app/features/ShoppingBag/presentation/cubits/cart_cubit.dart';
 import 'package:online_bike_shopping_app/features/ShoppingBag/presentation/screens/shopping_cart_screen.dart';
 import 'package:online_bike_shopping_app/test.dart';
 
@@ -13,19 +15,22 @@ class OnlineBikeShoppingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // home: Test(),
-      routes: AppRouter.routes,
-      theme: ThemeData(
-        primaryColor: AppColors.primary,
-        scaffoldBackgroundColor: AppColors.background,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.background,
-          elevation: 0,
+    return BlocProvider(
+      create: (context) => CartCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        // home: Test(),
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        theme: ThemeData(
+          primaryColor: AppColors.primary,
+          scaffoldBackgroundColor: AppColors.background,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: AppColors.background,
+            elevation: 0,
+          ),
         ),
+        initialRoute: AppName.discover,
       ),
-      initialRoute: AppName.discover,
     );
   }
 }

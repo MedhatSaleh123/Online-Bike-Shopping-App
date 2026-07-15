@@ -60,13 +60,10 @@ class ProductCard extends StatelessWidget {
 
             /// Bike Image
             Expanded(
-              child: Hero(
-                tag: product.name,
-                child: Image.asset(
-                  product.image,
-                  fit: BoxFit.contain,
-                  width: double.infinity,
-                ),
+              child: Image.asset(
+                product.image,
+                fit: BoxFit.contain,
+                width: double.infinity,
               ),
             ),
 
