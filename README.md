@@ -1,6 +1,11 @@
 # Online Bike Shopping App
 
 A cross-platform Flutter application for browsing and purchasing bikes online. This repository contains the full Flutter project (Android, iOS, web, desktop) used as the basis for a simple e-commerce experience focused on bikes.
+<img width="285" height="588" alt="bike4" src="https://github.com/user-attachments/assets/720ccb27-c713-4d22-bca1-d41979c3d246" />
+<img width="277" height="582" alt="bike3" src="https://github.com/user-attachments/assets/c0e2a46d-0505-4ac8-863e-da09b21ab341" />
+<img width="275" height="591" alt="bike2" src="https://github.com/user-attachments/assets/3c8410d8-9ccb-4d4d-81a3-f17dc5545233" />
+<img width="276" height="600" alt="bike1" src="https://github.com/user-attachments/assets/6dacdd57-6023-4b09-b558-7c7d1805e904" />
+
 
 ## Key Features
 
